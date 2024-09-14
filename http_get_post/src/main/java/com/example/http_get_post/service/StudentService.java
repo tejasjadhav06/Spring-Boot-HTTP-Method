@@ -1,5 +1,6 @@
 package com.example.http_get_post.service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -12,8 +13,8 @@ import com.example.http_get_post.model.Student;
 @Service
 public class StudentService {
 
-	List<Student> students = Arrays.asList(new Student(101,"Tejas",89),
-			new Student(102,"Shubham",90));
+	List<Student> students = new ArrayList(Arrays.asList(new Student(101,"Tejas",89),
+			new Student(102,"Shubham",90)));
 	
 	public List<Student> getAllStudents() {
 		return students;
@@ -24,5 +25,9 @@ public class StudentService {
 				.filter(p -> p.getId() == id)
 				.findFirst().orElse(new Student());
 		}
+
+	public void addStudent(Student student) {
+		students.add(student);
+	}
 
 }
