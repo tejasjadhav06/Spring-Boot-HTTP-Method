@@ -32,12 +32,16 @@ public class StudentService {
 	}
 
 	public Student updateStudent(int id,Student student) {
-		Student s = students.stream()
-				.filter(p -> p.getId() == id)
-				.findFirst().get();		
+		Student s = getStudentById(id);		
 		int index = students.indexOf(s);
 		students.set(index, student);
 		return student;
+	}
+
+	public Student deleteStudent(int id) {
+		Student s = getStudentById(id);		
+		int index = students.indexOf(s);
+		return students.remove(index);
 	}
 
 }
