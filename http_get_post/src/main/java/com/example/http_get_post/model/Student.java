@@ -1,5 +1,8 @@
 package com.example.http_get_post.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Student {
 	private int id;
 	private String name;
